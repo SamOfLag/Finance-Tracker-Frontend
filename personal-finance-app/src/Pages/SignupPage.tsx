@@ -1,4 +1,3 @@
-// src/Pages/SignupPage.tsx
 import React, { useState } from 'react';
 import TextInput from '../Components/TextInput';
 import { TextInputProps } from '../Types/interfaces';
