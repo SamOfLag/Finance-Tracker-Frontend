@@ -3,11 +3,10 @@ import styles from '../Styles/SignupPage.module.css';
 import TextInput from '../Components/TextInput';
 import PasswordInput from '../Components/PasswordInput';
 import { FaChartLine, FaPiggyBank, FaWallet, FaClipboardCheck, FaChartPie, FaGoogle, FaApple } from 'react-icons/fa';
-import api from '../APIs/api';
-import { signup } from '../APIs/authAPI';
 import { useNavigate } from 'react-router-dom';
+import { signin } from '../APIs/authAPI';
 
-const SignupPage: React.FC = () => {
+const SigninPage: React.FC = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -30,27 +29,22 @@ const SignupPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({}); // Clear previous errors
-
-    // if (formData.password !== formData.confirmPassword) {
-    //   setErrors((prev) => ({ ...prev, confirmPassword: 'Passwords do not match' }));
-    //   return;
-    // }
+    setErrors({});
 
     try {
       setIsLoading(true);
-      await signup({
-        username: formData.username,
+      await signin({
         email: formData.email,
         password: formData.password,
       });
-      navigate('/signin')
+      navigate('/dashboard')
+
     } catch (error) {
-      const e = error as Error;
-      setErrors({ email: e.message }); 
-    } finally {
-      setIsLoading(false);
-    }
+        const e = error as Error; // Type assertion
+        setErrors({ email: e.message }); // Safely access message after type assertion
+      } finally {
+        setIsLoading(false);
+      }
   };
 
   return (
@@ -58,16 +52,8 @@ const SignupPage: React.FC = () => {
       <div className={styles.signupCard}>
         {/* Left Section */}
         <div className={styles.leftSection}>
-          <h1>Welcome to SmartFi!</h1>
+          <h1>Sign in</h1>
           <form onSubmit={handleSubmit}>
-            <TextInput
-              label="Username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder="Enter your username"
-              error={errors.username}
-            />
             <TextInput
               label="Email"
               name="email"
@@ -78,23 +64,15 @@ const SignupPage: React.FC = () => {
               error={errors.email}
             />
             <PasswordInput
-              label="Create Password"
+              label="Password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Must be 8+ characters"
               error={errors.password}
             />
-            <PasswordInput
-              label="Confirm Password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              placeholder="Repeat password"
-              error={errors.confirmPassword}
-            />
             <button className={styles.signupButton} type="submit">
-              Sign Up
+              Sign In
             </button>
           </form>
 
@@ -110,7 +88,7 @@ const SignupPage: React.FC = () => {
           </div> */}
 
           <p className={styles.prompt}>
-            Already have an account? <a href="/signin">Sign in</a>
+            Don't have an account? <a href="/signup">Sign up</a>
           </p>
        
         </div>
@@ -137,4 +115,4 @@ const SignupPage: React.FC = () => {
   );
 };
 
-export default SignupPage;
+export default SigninPage;

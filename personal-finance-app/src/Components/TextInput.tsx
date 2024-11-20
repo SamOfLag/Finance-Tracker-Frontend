@@ -7,7 +7,7 @@ const TextInput: React.FC<TextInputProps> = ({
     return (
 
     <div style={{marginBottom: '16px'}}>
-        <label htmlFor={name} style={{display: 'block', marginBottom: '8px', fontWeight: 'bold'}}></label>
+        <label htmlFor={name} style={{display: 'block', marginBottom: '8px', fontWeight: 'bold'}}>{label}</label>
         <input
         id={name}
         name={name}
