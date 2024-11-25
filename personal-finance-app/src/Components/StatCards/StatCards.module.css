@@ -1,0 +1,7 @@
+.statCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid */
+    gap: 1rem; /* Space between cards */
+    margin: 1.5rem 0; /* Optional margin for spacing around the container */
+  }
+  

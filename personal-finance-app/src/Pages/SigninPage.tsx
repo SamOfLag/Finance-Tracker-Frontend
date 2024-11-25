@@ -37,7 +37,7 @@ const SigninPage: React.FC = () => {
         email: formData.email,
         password: formData.password,
       });
-      navigate('/dashboard')
+      // navigate('/dashboard')
 
     } catch (error) {
         const e = error as Error; // Type assertion

@@ -1,0 +1,44 @@
+.statsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Optional background color */
+    border-radius: 10px;
+  }
+
+  
+  .skeletonCard {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 120px;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  /* Pulse animation for skeleton loader */
+  @keyframes pulse {
+    0% {
+      background-color: #e0e0e0;
+    }
+    50% {
+      background-color: #f0f0f0;
+    }
+    100% {
+      background-color: #e0e0e0;
+    }
+  }
+
+  .statsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .statsContainer {
+      grid-template-columns: 1fr; /* Single column for small screens */
+    }
+  }
+  
+  

@@ -20,3 +20,44 @@ export interface PasswordInputProps {
     placeholder?: string;
     error?: string | null;
   }
+
+export interface StatCardProps {
+    title: string;
+    value: string;
+    percentage: string;
+    isPositive: boolean;
+  }
+
+export interface StatCardsProps {
+    stats: Array<{
+      title: string;
+      value: string;
+      percentage: string;
+      isPositive: boolean;
+    }>;
+  }
+
+export interface Stat {
+    title: string;
+    value: string;
+    percentage: string;
+    isPositive: boolean;
+  }
+  
+export interface StatsContextType {
+    stats: Stat[] | null;
+    loading: boolean;
+    error: string | null;
+  }
+
+export interface StatsContextProps {
+    stats: {
+      totalIncome: number;
+      totalExpenses: number;
+      balance: number;
+      incomeBreakdown: Array<{ _id: string; total: number }>;
+      expenseBreakdown: Array<{ _id: string; total: number }>;
+    } | null;
+    loading: boolean;
+  }
+  

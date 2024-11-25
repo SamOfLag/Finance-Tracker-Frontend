@@ -1,6 +1,7 @@
 import axios from 'axios';
+import apiClient from './apiClient';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+export const API_BASE_URL = 'http://localhost:5000/api';
 
 export const signup = async (userData: {
   username: string;
@@ -21,9 +22,16 @@ export const signin = async (userData: {
     password: string;
   }): Promise<void> => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/auth/login`, userData);
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data?.message || 'An error occurred while signing in.';
+      const response = await apiClient.post('/auth/login', userData);
+      const token = response.data.data;
+      
+      console.log('Login response:', token)
+
+      if (token) {
+        localStorage.setItem('authToken', token);
+        window.location.href = '/dashboard';
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
     }
   };

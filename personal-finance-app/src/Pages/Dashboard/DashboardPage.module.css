@@ -1,0 +1,29 @@
+.dashboardPage {
+    display: flex;
+    height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .statsSection {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .chartsSection {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .detailsSection {
+    display: flex;
+    gap: 20px;
+  }
+  

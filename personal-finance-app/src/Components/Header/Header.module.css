@@ -1,0 +1,75 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  .welcomeSection {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .welcomeSection h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .welcomeSection h1 span {
+    color: #28a745; /* Highlight dynamic username */
+  }
+
+  .welcomeSection p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .dateFilter {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .notification {
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .notification:hover {
+    color: #333;
+  }
+  
+  .userProfile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+  }
+  
+  .userName {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+  }
+  

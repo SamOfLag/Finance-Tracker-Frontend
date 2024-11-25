@@ -3,7 +3,7 @@ import styles from '../Styles/SignupPage.module.css';
 import TextInput from '../Components/TextInput';
 import PasswordInput from '../Components/PasswordInput';
 import { FaChartLine, FaPiggyBank, FaWallet, FaClipboardCheck, FaChartPie, FaGoogle, FaApple } from 'react-icons/fa';
-import api from '../APIs/api';
+import api from '../APIs/apiClient';
 import { signup } from '../APIs/authAPI';
 import { useNavigate } from 'react-router-dom';
 
