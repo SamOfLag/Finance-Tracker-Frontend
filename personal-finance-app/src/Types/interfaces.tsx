@@ -59,5 +59,6 @@ export interface StatsContextProps {
       expenseBreakdown: Array<{ _id: string; total: number }>;
     } | null;
     loading: boolean;
+    loadStats: () => void
   }
   

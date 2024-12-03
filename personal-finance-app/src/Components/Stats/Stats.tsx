@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Stats.module.css';
 import StatCard from '../StatCard/StatCard';
 import { useStats } from '../../Contexts/StatsContext';
@@ -12,7 +12,11 @@ import StatCards from '../StatCards/StatCards';
 // ];
 
 const Stats: React.FC = () => {
-    const {stats, loading} = useStats()
+    const {stats, loading, loadStats} = useStats()
+
+    useEffect(() => {
+      loadStats()
+    }, [])
 
     if (loading) {
         return (
@@ -25,6 +29,8 @@ const Stats: React.FC = () => {
           </div>
         );
       }
+
+    
     
       if (!stats) {
         return <div>Error loading stats...</div>;

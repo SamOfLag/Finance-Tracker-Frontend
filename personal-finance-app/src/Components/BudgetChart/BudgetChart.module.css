@@ -1,0 +1,67 @@
+.budgetContainer {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Make it responsive */
+  max-width: 600px;
+  /* margin: auto; */
+}
+
+.budgetCard {
+  display: flex;
+  align-items: center; /* Aligns chart and legend vertically */
+  justify-content: space-evenly; /* Adds space between the chart and legend */
+  gap: 1px;
+  
+}
+
+.chartWrapper {
+  display: flex;
+  position: relative;
+  width: 200px; /* Adjust size for chart */
+  height: 200px;
+}
+
+.chartCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.chartCenter h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.chartCenter p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legendLabel {
+  font-size: 0.9rem;
+  color: #333;
+}

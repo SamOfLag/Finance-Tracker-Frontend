@@ -26,7 +26,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.welcomeSection}>
-        <h1>Welcome back, {username || 'User'}!</h1>
+        <h1>Welcome back, {username || 'User'}</h1>
         <p>It’s the best time to manage your finances.</p>
       </div>
 

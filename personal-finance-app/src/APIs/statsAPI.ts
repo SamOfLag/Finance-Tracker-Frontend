@@ -1,5 +1,3 @@
-import axios from 'axios';
-import { API_BASE_URL } from './authAPI';
 import apiClient from './apiClient';
 
 export const fetchSummary = async () => {

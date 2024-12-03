@@ -39,11 +39,13 @@ const SignupPage: React.FC = () => {
 
     try {
       setIsLoading(true);
-      await signup({
+      const signupResponse = await signup({
         username: formData.username,
         email: formData.email,
         password: formData.password,
       });
+
+
       navigate('/signin')
     } catch (error) {
       const e = error as Error;

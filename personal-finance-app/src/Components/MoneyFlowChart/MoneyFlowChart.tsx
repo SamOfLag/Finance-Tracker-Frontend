@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import axios from 'axios';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
-import apiClient from '../../APIs/apiClient';
+import { fetchChart } from '../../APIs/chartAPI';
+import styles from './MoneyFlowChart.module.css'
+import { resolve } from 'path';
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const MoneyFlowChart: React.FC = () => {
   const [chartData, setChartData] = useState<any>(null);
 
+  // const mockData = [
+  //   { monthYear: 'January 2024', income: 5000, expenses: 3000 },
+  //   { monthYear: 'February 2024', income: 4000, expenses: 2500 },
+  // ]
+
   useEffect(() => {
     const fetchMoneyFlowData = async () => {
       try {
-        const response = await apiClient.get('/chart');
-
-        const data = response.data.data;
+        const data = await fetchChart()
 
         // Format data for the chart
         setChartData({
@@ -45,7 +49,7 @@ const MoneyFlowChart: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className={styles.chartContainer}>
       <h3>Money Flow Chart</h3>
       <Bar data={chartData} />
     </div>

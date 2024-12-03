@@ -9,29 +9,29 @@ const StatsContext = createContext<StatsContextProps | undefined>(undefined);
 // Create the provider component
 export const StatsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [stats, setStats] = useState<StatsContextProps['stats']>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  
     const loadStats = async () => {
       try {
         setLoading(true)
         const data = await fetchSummary()
+        setLoading(false)
         setStats(data);
         setError(null);
       } catch (err) {
         setError('Failed to fetch stats data.');
+        setLoading(false)
         
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
-    loadStats();
-  }, []);
+    // loadStats();
+
 
   return (
-    <StatsContext.Provider value={{ stats, loading }}>
+    <StatsContext.Provider value={{ stats, loading, loadStats }}>
       {children}
     </StatsContext.Provider>
   );
